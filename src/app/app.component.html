@@ -1,20 +1,13 @@
-<h1 class="center">Liste de Pokémons</h1>
-
-<div class="container">
-    <div class="row">
-        <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-            <div class="card horizontal" (click)="selectPokemon(pokemon)"  pkmnBorderCard>
-                <div class="card-image">
-                    <img [src]="pokemon.picture">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p>{{ pokemon.name }}</p>
-                        <p>{{ pokemon.created }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<nav>
+    <div class="nav-wrapper teal">
+        <a href="#" class="brand-logo center">
+            Pokédex
+        </a>
     </div>
-</div>
+</nav>
+
+<!-- Permet d'afficher le composant fils lié à la route rentré dans l'url -->
+<router-outlet></router-outlet>
+
+
 
