@@ -25,7 +25,7 @@ export class PokemonFormComponent implements OnInit {
 
   // event permet de savoir si l'utilisateur à coché ou décoché une case.
   selectType($event: Event, type: string){
-    const isChecked = ($event.target as HTMLInputElement).checked;
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
 
     if(isChecked){
       this.pokemon.types.push(type);
@@ -42,7 +42,7 @@ export class PokemonFormComponent implements OnInit {
       return false;
     }
     // Bloque si l'utilisateur à déja coché 3
-    if(this.pokemon.types.length > 2 && !this.hasType(type)) {
+    if(this.pokemon.types.length > 3 && !this.hasType(type)) {
       return false;
     }
 
