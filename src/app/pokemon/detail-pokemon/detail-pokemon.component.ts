@@ -26,7 +26,8 @@ export class DetailPokemonComponent implements OnInit {
       
       // Si j'ai un pokemonId alors je vais chercher le pokemon et je l'attribut à la propriété pokemon
       if(pokemonId){
-            this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
+        this.pokemonService.getPokemonById(+pokemonId)
+          .subscribe(pokemon => this.pokemon = pokemon);
       }
   }
 
