@@ -31,6 +31,11 @@ export class DetailPokemonComponent implements OnInit {
       }
   }
 
+  deletePokemon(pokemon: Pokemon){
+    this.pokemonService.deletePokemonById(pokemon.id)
+      .subscribe(() => this.goToPokemonList());
+  }
+
   goToPokemonList(){
     // On ajoute un tableau car on peut avoir besoin de paramètre pour l'url vers laquelle on redirige
     this.router.navigate(['/pokemons']);
