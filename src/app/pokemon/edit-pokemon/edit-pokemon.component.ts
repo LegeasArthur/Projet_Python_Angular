@@ -7,15 +7,18 @@ import { PokemonService } from '../pokemon.service';
   selector: 'app-edit-pokemon',
   template: `
   <!-- le ? permet de ne rien afficher si le pokemon n'existe pas -->
-    <h2 class="center">Editer {{ pokemon?.name}}</h2>
+    <h2 *ngIf="pokemon" class="center">Editer {{ pokemon?.name}}</h2>
     <p *ngIf="pokemon" class="center"> 
       <img [src]="pokemon.picture">
     </p>
     <!-- J'appelle le formulaire par son selector et je lui passe un pokemon -->
     <app-pokemon-form *ngIf="pokemon" [pokemon]="pokemon"></app-pokemon-form>
-  `,
-  styles: [
-  ]
+
+    <!-- J'affiche le loader en attendant l'affichage -->
+    <h3 *ngIf="!pokemon" class="center">
+    <app-loader></app-loader>
+    </h3>
+  `
 })
 export class EditPokemonComponent implements OnInit {
 
